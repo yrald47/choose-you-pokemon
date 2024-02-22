@@ -47,6 +47,7 @@ function App() {
         <p><code>Choose Your Pokemon</code></p>
         <img src={pokeball} className="App-logo" alt="logo" />
         <Select options={datas} className="select" isClearable={true} onChange={(e) => handleChange(e)} />
+        <button className="button info"><code>Info</code></button>
         <h1><code>{selected ? `You choose ${labelSelected} (${baseExp} exp)` : ""}</code></h1>
       </header>
     </div>
