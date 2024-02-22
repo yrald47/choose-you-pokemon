@@ -7,6 +7,7 @@ import Modal from "react-bootstrap/Modal";
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
+  const pokeAPI = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0";
   const [datas, setDatas] = useState([])
   const [selected, setSelected] = useState("")
   const [labelSelected, setLabelSelected] = useState("");
@@ -18,7 +19,7 @@ function App() {
   
   useEffect(() => {
     const getPokemons = async () => {
-      const pokemons = await fetch("https://pokeapi.co/api/v2/pokemon/")
+      const pokemons = await fetch(pokeAPI)
       const value = await pokemons.json()
       const results = value.results.map(data => {
         return {
@@ -76,8 +77,8 @@ function App() {
         </Modal.Header>
         <Modal.Body>
           <div>
-            This is just an app that build for learning. API hit from: <a href="https://pokeapi.co/api/v2/pokemon" target='blank'>
-              https://pokeapi.co/api/v2/pokemon
+            This is just an app that build for learning. API hit from: <a href={pokeAPI} target='blank'>
+              {pokeAPI}
             </a>
           </div>
         </Modal.Body>
