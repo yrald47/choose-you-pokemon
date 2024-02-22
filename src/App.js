@@ -9,23 +9,18 @@ function App() {
   const [labelSelected, setLabelSelected] = useState("");
   const [baseExp, setBaseExp] = useState(0)
   
-  
   useEffect(() => {
     const getPokemons = async () => {
       const pokemons = await fetch("https://pokeapi.co/api/v2/pokemon/")
       const value = await pokemons.json()
       const results = value.results.map(data => {
         return {
-          label: data.name
-            .toLowerCase()
-            .split(" ")
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(" "),
+          label: data.name.toLowerCase().split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" "),
           value: data.url,
         };
       })
       setDatas(results.sort((a, b) => a.label > b.label ? 1 : -1))
-      // setDatas(results.sort((a, b) => a.label.localeCompare(b.localeCompare)))
+      // setDatas(results.sort((a, b) => a.label.localeCompare(b.label.localeCompare)))
     }
     getPokemons()
   }, [])
@@ -49,21 +44,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          <code>Choose Your Pokemon</code>
-        </p>
+        <p><code>Choose Your Pokemon</code></p>
         <img src={pokeball} className="App-logo" alt="logo" />
-        <Select
-          options={datas}
-          className="select"
-          isClearable={true}
-          onChange={(e) => handleChange(e)}
-        />
-        <h1>
-          <code>
-            {selected ? `You choose ${labelSelected} (${baseExp} exp)` : ""}
-          </code>
-        </h1>
+        <Select options={datas} className="select" isClearable={true} onChange={(e) => handleChange(e)} />
+        <h1><code>{selected ? `You choose ${labelSelected} (${baseExp} exp)` : ""}</code></h1>
       </header>
     </div>
   );
