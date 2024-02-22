@@ -52,7 +52,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p className='header'>
-          <code className='code'>Choose Your Pokemon</code>
+          <codes>Choose Your Pokemon</codes>
         </p>
         <img src={pokeball} className="App-logo" alt="logo" />
         <Select
@@ -62,12 +62,12 @@ function App() {
           onChange={(e) => handleChange(e)}
         />
         <h1 className='result'>
-          <code className='code'>
+          <codes>
             {selected ? `You choose ${labelSelected} (${baseExp} exp)` : ""}
-          </code>
+          </codes>
         </h1>
         <button className="button info" onClick={handleShow}>
-          <code className='code'>Info</code>
+          <codes>Info</codes>
         </button>
       </header>
       <Modal show={show} onHide={handleClose} className='centered'>

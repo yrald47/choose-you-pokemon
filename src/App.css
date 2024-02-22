@@ -25,11 +25,16 @@
 }
 
 .header{
+  font-size:50px;
+  font-weight: bold;
   color: white;
 }
 
 .result{
- color: white; 
+ color: white;
+ margin: 15px;
+ padding: 5px;
+
 }
 
 .select{
