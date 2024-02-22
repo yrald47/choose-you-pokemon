@@ -2,12 +2,19 @@ import pokeball from './pokeball.svg'
 import './App.css';
 import Select from "react-select";
 import { useEffect, useState } from 'react';
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   const [datas, setDatas] = useState([])
   const [selected, setSelected] = useState("")
   const [labelSelected, setLabelSelected] = useState("");
   const [baseExp, setBaseExp] = useState(0)
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   
   useEffect(() => {
     const getPokemons = async () => {
@@ -44,12 +51,42 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p><code>Choose Your Pokemon</code></p>
+        <p className='header'>
+          <code className='code'>Choose Your Pokemon</code>
+        </p>
         <img src={pokeball} className="App-logo" alt="logo" />
-        <Select options={datas} className="select" isClearable={true} onChange={(e) => handleChange(e)} />
-        <button className="button info"><code>Info</code></button>
-        <h1><code>{selected ? `You choose ${labelSelected} (${baseExp} exp)` : ""}</code></h1>
+        <Select
+          options={datas}
+          className="select"
+          isClearable={true}
+          onChange={(e) => handleChange(e)}
+        />
+        <h1 className='result'>
+          <code className='code'>
+            {selected ? `You choose ${labelSelected} (${baseExp} exp)` : ""}
+          </code>
+        </h1>
+        <button className="button info" onClick={handleShow}>
+          <code className='code'>Info</code>
+        </button>
       </header>
+      <Modal show={show} onHide={handleClose} className='centered'>
+        <Modal.Header closeButton>
+          <Modal.Title>PokeAPI</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div>
+            This is just an app that build for learning. API hit from: <a href="https://pokeapi.co/api/v2/pokemon" target='blank'>
+              https://pokeapi.co/api/v2/pokemon
+            </a>
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            OK
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }

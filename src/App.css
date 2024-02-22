@@ -24,6 +24,14 @@
   color: white;
 }
 
+.header{
+  color: white;
+}
+
+.result{
+ color: white; 
+}
+
 .select{
   width: 50%;
   color: black;
@@ -33,16 +41,29 @@
   color: white;
   background-color: #007BFF;
   margin: 15px;
-  padding: 10px;
+  /* padding: 10px; */
   border-radius: 5px;
+}
+
+.information{
+  color: black;
+}
+
+.centered{
+  text-align: center;
 }
 
 .button.info{
   background-color: #16A3B8;
+  color: white;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.code{
+  color: white;
 }
 
 @keyframes App-logo-spin {
