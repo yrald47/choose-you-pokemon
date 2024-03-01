@@ -109,7 +109,7 @@ function App() {
               <b>Weight:</b>{" "}
               {info && info.weight ? info.weight : "unidentified"}
             </div>
-            <div>
+            <div className='centered'>
               This is just an app that build for learning. API hit from:{" "}
               <a href={pokeAPI} target="blank">
                 {pokeAPI}
