@@ -16,19 +16,7 @@ function App() {
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = async (event) => {
-    setShow(true);
-    // const selectedValue = event.value;
-    // setSelected(selectedValue);
-    // setLabelSelected(event.label);
-
-    const pokeInfo = await fetch(selected);
-    const information = await pokeInfo.json();
-    // const ability = information.abilities[0].ability.name;
-    setInfo(information);
-    // console.log(information)
-    // console.log(info);
-  }
+  const handleShow = () => setShow(true);
   
   useEffect(() => {
     const getPokemons = async () => {
@@ -69,6 +57,12 @@ function App() {
         <p className="header">
           <codes>Choose Your Pokemon</codes>
         </p>
+        <p className='subtitle'>
+          This is just an app that build for learning. API hit from:{" "}
+          <a href={pokeAPI} target="blank">
+            {pokeAPI}
+          </a>
+        </p>
         <img src={pokeball} className="App-logo" alt="logo" />
         <Select
           options={datas}
@@ -81,8 +75,8 @@ function App() {
             {selected ? `You choose ${labelSelected} (${baseExp} exp)` : ""}
           </codes>
         </h1>
-        <button className="button info" onClick={(e) => handleShow(e)}>
-          <codes>Info</codes>
+        <button disabled={!selected} className="button info" onClick={(e) => handleShow(e)}>
+          <codes>{selected ? "Info" : "Select Pokemon First"}</codes>
         </button>
       </header>
       <Modal show={show} onHide={handleClose}>
@@ -90,7 +84,7 @@ function App() {
           <Modal.Title>{labelSelected || "Pokemon"} Info</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className='info'>
+          <div className="info">
             <div>
               <b>Species:</b>{" "}
               {info && info.species ? info.species.name : "unidentified"}
@@ -108,12 +102,6 @@ function App() {
             <div>
               <b>Weight:</b>{" "}
               {info && info.weight ? info.weight : "unidentified"}
-            </div>
-            <div className='centered'>
-              This is just an app that build for learning. API hit from:{" "}
-              <a href={pokeAPI} target="blank">
-                {pokeAPI}
-              </a>
             </div>
           </div>
         </Modal.Body>
