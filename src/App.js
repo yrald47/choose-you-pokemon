@@ -12,10 +12,23 @@ function App() {
   const [selected, setSelected] = useState("")
   const [labelSelected, setLabelSelected] = useState("");
   const [baseExp, setBaseExp] = useState(0)
+  const [info, setInfo] = useState({})
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = async (event) => {
+    setShow(true);
+    // const selectedValue = event.value;
+    // setSelected(selectedValue);
+    // setLabelSelected(event.label);
+
+    const pokeInfo = await fetch(selected);
+    const information = await pokeInfo.json();
+    // const ability = information.abilities[0].ability.name;
+    setInfo(information);
+    // console.log(information)
+    // console.log(info);
+  }
   
   useEffect(() => {
     const getPokemons = async () => {
@@ -41,6 +54,7 @@ function App() {
 
       const detail = await fetch(selectedValue);
       const value = await detail.json();
+      setInfo(value)
       setBaseExp(value.base_experience);
     }
     else{
@@ -52,7 +66,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p className='header'>
+        <p className="header">
           <codes>Choose Your Pokemon</codes>
         </p>
         <img src={pokeball} className="App-logo" alt="logo" />
@@ -62,24 +76,45 @@ function App() {
           isClearable={true}
           onChange={(e) => handleChange(e)}
         />
-        <h1 className='result'>
+        <h1 className="result">
           <codes>
             {selected ? `You choose ${labelSelected} (${baseExp} exp)` : ""}
           </codes>
         </h1>
-        <button className="button info" onClick={handleShow}>
+        <button className="button info" onClick={(e) => handleShow(e)}>
           <codes>Info</codes>
         </button>
       </header>
-      <Modal show={show} onHide={handleClose} className='centered'>
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>PokeAPI</Modal.Title>
+          <Modal.Title>{labelSelected || "Pokemon"} Info</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div>
-            This is just an app that build for learning. API hit from: <a href={pokeAPI} target='blank'>
-              {pokeAPI}
-            </a>
+          <div className='info'>
+            <div>
+              <b>Species:</b>{" "}
+              {info && info.species ? info.species.name : "unidentified"}
+            </div>
+            <div>
+              <b>Ability:</b>
+              <div className="abilities">
+                {info && info.abilities && info.abilities.length > 0
+                  ? info.abilities.map((ability, index) => (
+                      <div className="ability">{ability.ability.name}</div>
+                    ))
+                  : ""}
+              </div>
+            </div>
+            <div>
+              <b>Weight:</b>{" "}
+              {info && info.weight ? info.weight : "unidentified"}
+            </div>
+            <div>
+              This is just an app that build for learning. API hit from:{" "}
+              <a href={pokeAPI} target="blank">
+                {pokeAPI}
+              </a>
+            </div>
           </div>
         </Modal.Body>
         <Modal.Footer>

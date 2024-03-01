@@ -72,3 +72,20 @@
     transform: rotate(360deg);
   }
 }
+
+.abilities{
+  display: flex;
+}
+.ability{
+  background-color: #17A2B8;
+  border-radius: 5px;
+  width: max-content;
+  padding: 5px;
+  margin: 5px;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
