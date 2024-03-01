@@ -14,9 +14,15 @@ codes {
 }
 
 a:link{
-  color: #17A2B8;
+  color: #FF1C1C;
 }
 
 a:visited{
-  color: #17A2B8;
+  color: #FFFFFF;
+}
+
+button:disabled,
+button[disabled]{
+  background-color: red;
+  color: #666666;
 }

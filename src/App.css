@@ -9,7 +9,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 60s linear;
   }
 }
 
@@ -34,9 +34,9 @@
   font-size: 15px;
 }
 .result{
- color: white;
- margin: 15px;
- padding: 5px;
+  color: white;
+  margin: 15px;
+  padding: 5px;
 
 }
 

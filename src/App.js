@@ -54,15 +54,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p className="header">
+        <div className="header">
           <codes>Choose Your Pokemon</codes>
-        </p>
-        <p className='subtitle'>
+        </div>
+        <div className='subtitle'>
           This is just an app that build for learning. API hit from:{" "}
           <a href={pokeAPI} target="blank">
             {pokeAPI}
           </a>
-        </p>
+        </div>
         <img src={pokeball} className="App-logo" alt="logo" />
         <Select
           options={datas}
@@ -76,7 +76,7 @@ function App() {
           </codes>
         </h1>
         <button disabled={!selected} className="button info" onClick={(e) => handleShow(e)}>
-          <codes>{selected ? "Info" : "Select Pokemon First"}</codes>
+          {selected ? "Info" : "Select Pokemon First"}
         </button>
       </header>
       <Modal show={show} onHide={handleClose}>
