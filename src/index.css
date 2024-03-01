@@ -12,3 +12,11 @@ codes {
     monospace;
   color: white;
 }
+
+a:link{
+  color: #17A2B8;
+}
+
+a:visited{
+  color: #17A2B8;
+}
