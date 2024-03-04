@@ -23,6 +23,5 @@ a:visited{
 
 button:disabled,
 button[disabled]{
-  background-color: red;
-  color: #666666;
+  background-color: #666666;
 }

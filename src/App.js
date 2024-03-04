@@ -112,7 +112,7 @@ function App() {
         </h1>
         <button
           disabled={!selected}
-          className="button info"
+          className={`button ${selected ? "info" : "disabled"}`}
           onClick={(e) => handleShow(e)}
         >
           {selected ? "Info" : "Select Pokemon First"}
