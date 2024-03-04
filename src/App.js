@@ -56,29 +56,19 @@ function App() {
       // })
 
       const ability_description = value.abilities.map(async (ability) => {
-          const abilityResponse = await fetch(ability.ability.url);
-          const abilityData = await abilityResponse.json();
-          const description = abilityData.effect_entries.find((entry) => entry.language.name === "en")?.effect;
-
-          return {
-            ...ability.ability,
-            description,
-          };
-        })
-
-        setDesc(await Promise.all(ability_description));
-        // console.log(desc[0].description)
-        // console.log(desc)
-      // console.log(typeof(ability_description))
-      // console.log(typeof (await Promise.all(ability_description)));
-      // console.log(await Promise.all(ability_description));
-      // console.log(await Promise.all(ability_description)[0])
-      // console.log(value)
+        const abilityResponse = await fetch(ability.ability.url);
+        const abilityData = await abilityResponse.json();
+        const description = abilityData.effect_entries.find((entry) => entry.language.name === "en")?.effect;
+        
+        return {
+          ...ability.ability,
+          description,
+        };
+      })
       
-      // console.log(value)
+      setDesc(await Promise.all(ability_description));
       setInfo(value)
       setBaseExp(value.base_experience);
-      // console.log(info)
     }
     else{
       setSelected("");
@@ -115,7 +105,7 @@ function App() {
           className={`button ${selected ? "info" : "disabled"}`}
           onClick={(e) => handleShow(e)}
         >
-          {selected ? "Info" : "Select Pokemon First"}
+          {selected ? `Show ${labelSelected} Info` : "Select Pokemon First"}
         </button>
       </header>
       <Modal show={show} onHide={handleClose}>
@@ -137,7 +127,7 @@ function App() {
                         <div
                           className="ability"
                           data-tooltip-id="my-tooltip-styles"
-                          data-tooltip-content={desc[index].description}
+                          data-tooltip-content={desc[index].description || "No Description"}
                         >
                           {ability.ability.name}
                         </div>
@@ -148,7 +138,7 @@ function App() {
               </div>
             </div>
             <div>
-              <b>Weight:</b>{" "}
+              <b>Weight:</b>
               {info && info.weight ? info.weight : "unidentified"}
             </div>
           </div>
