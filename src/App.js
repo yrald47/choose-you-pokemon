@@ -108,7 +108,7 @@ function App() {
           {selected ? `Show ${labelSelected} Info` : "Select Pokemon First"}
         </button>
       </header>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
           <Modal.Title>{labelSelected || "Pokemon"} Info</Modal.Title>
         </Modal.Header>
@@ -127,11 +127,13 @@ function App() {
                         <div
                           className="ability"
                           data-tooltip-id="my-tooltip-styles"
-                          data-tooltip-content={desc[index].description || "No Description"}
+                          data-tooltip-content={
+                            desc[index].description || "No Description"
+                          }
                         >
                           {ability.ability.name}
                         </div>
-                        <Tooltip className='mytooltip' id="my-tooltip-styles"/>
+                        <Tooltip className="mytooltip" id="my-tooltip-styles" />
                       </>
                     ))
                   : ""}
