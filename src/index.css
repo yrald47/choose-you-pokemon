@@ -16,14 +16,17 @@ codes {
 a:link{
   color: #FF1C1C;
   text-decoration: none;
+  cursor: pointer;
 }
 
 a:visited{
   color: #FFFFFF;
   text-decoration: none;
+  cursor: pointer;
 }
 
 button:disabled,
 button[disabled]{
   background-color: #666666;
+  cursor: no-drop;
 }
