@@ -141,7 +141,7 @@ function App() {
                         >
                           {ability.ability.name}
                         </div>
-                        <Tooltip className='mytooltip' id="my-tooltip-styles" width={10}/>
+                        <Tooltip className='mytooltip' id="my-tooltip-styles"/>
                       </>
                     ))
                   : ""}
