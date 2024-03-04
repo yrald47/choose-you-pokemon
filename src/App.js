@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Tooltip } from "react-tooltip";
 
 function App() {
   const pokeAPI = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0";
@@ -13,6 +14,7 @@ function App() {
   const [labelSelected, setLabelSelected] = useState("");
   const [baseExp, setBaseExp] = useState(0)
   const [info, setInfo] = useState({})
+  const [desc, setDesc] = useState({});
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -42,8 +44,41 @@ function App() {
 
       const detail = await fetch(selectedValue);
       const value = await detail.json();
+      // const ability_description = value.abilities.map(async (abilityData) => {
+      //   let description = await fetch(abilityData.ability.url)
+      //   let desc = await description.json()
+      //   const effectEntry  = desc.effect_entries.find(entry => entry.language.name === "en");
+      //   // return effectEntry ? effectEntry.effect : "No Description";
+      //   return {
+      //     ...abilityData,
+      //     effectEntry
+      //   };
+      // })
+
+      const ability_description = value.abilities.map(async (ability) => {
+          const abilityResponse = await fetch(ability.ability.url);
+          const abilityData = await abilityResponse.json();
+          const description = abilityData.effect_entries.find((entry) => entry.language.name === "en")?.effect;
+
+          return {
+            ...ability.ability,
+            description,
+          };
+        })
+
+        setDesc(await Promise.all(ability_description));
+        // console.log(desc[0].description)
+        // console.log(desc)
+      // console.log(typeof(ability_description))
+      // console.log(typeof (await Promise.all(ability_description)));
+      // console.log(await Promise.all(ability_description));
+      // console.log(await Promise.all(ability_description)[0])
+      // console.log(value)
+      
+      // console.log(value)
       setInfo(value)
       setBaseExp(value.base_experience);
+      // console.log(info)
     }
     else{
       setSelected("");
@@ -57,7 +92,7 @@ function App() {
         <div className="header">
           <codes>Choose Your Pokemon</codes>
         </div>
-        <div className='subtitle'>
+        <div className="subtitle">
           This is just an app that build for learning. API hit from:{" "}
           <a href={pokeAPI} target="blank">
             {pokeAPI}
@@ -75,7 +110,11 @@ function App() {
             {selected ? `You choose ${labelSelected} (${baseExp} exp)` : ""}
           </codes>
         </h1>
-        <button disabled={!selected} className="button info" onClick={(e) => handleShow(e)}>
+        <button
+          disabled={!selected}
+          className="button info"
+          onClick={(e) => handleShow(e)}
+        >
           {selected ? "Info" : "Select Pokemon First"}
         </button>
       </header>
@@ -94,7 +133,16 @@ function App() {
               <div className="abilities">
                 {info && info.abilities && info.abilities.length > 0
                   ? info.abilities.map((ability, index) => (
-                      <div className="ability">{ability.ability.name}</div>
+                      <>
+                        <div
+                          className="ability"
+                          data-tooltip-id="my-tooltip-styles"
+                          data-tooltip-content={desc[index].description}
+                        >
+                          {ability.ability.name}
+                        </div>
+                        <Tooltip id="my-tooltip-styles" />
+                      </>
                     ))
                   : ""}
               </div>
