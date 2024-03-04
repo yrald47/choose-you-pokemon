@@ -92,3 +92,7 @@
   flex-direction: column;
   gap: 10px
 }
+
+.mytooltip {
+  max-width: 100%;
+}
