@@ -123,10 +123,9 @@
 
 .image_container{
   display: flex;
-  /* background-color: #16A3B8; */
   border-radius: 100px;
   width: 180px;
   height: 180px;
   margin: auto;
-  border: 2px solid #16A3B8;
+  border: 5px solid #16A3B8;
 }
