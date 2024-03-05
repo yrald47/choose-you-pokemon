@@ -44,17 +44,6 @@ function App() {
 
       const detail = await fetch(selectedValue);
       const value = await detail.json();
-      // const ability_description = value.abilities.map(async (abilityData) => {
-      //   let description = await fetch(abilityData.ability.url)
-      //   let desc = await description.json()
-      //   const effectEntry  = desc.effect_entries.find(entry => entry.language.name === "en");
-      //   // return effectEntry ? effectEntry.effect : "No Description";
-      //   return {
-      //     ...abilityData,
-      //     effectEntry
-      //   };
-      // })
-
       const ability_description = value.abilities.map(async (ability) => {
         const abilityResponse = await fetch(ability.ability.url);
         const abilityData = await abilityResponse.json();
@@ -113,36 +102,45 @@ function App() {
           <Modal.Title>{labelSelected || "Pokemon"} Info</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="information">
-            <div className='image_container'>
-              <img src={info && info.sprites ? info.sprites.front_default : "unidentified"} alt='img' className='poke-image' ></img>
-            </div>
-            <div className='text-information'>
-              <div className='name'>Species:</div>
-              <div className='text'>{info && info.species ? info.species.name : "unidentified"}</div>
-            </div>
-            <div>
-              <b>Ability:</b>
-              <div className="abilities">
-                {info && info.abilities && info.abilities.length > 0
-                  ? info.abilities.map((ability, index) => (
-                      <>
-                        <div
-                          className="ability"
-                          data-tooltip-id="my-tooltip-styles"
-                          data-tooltip-content={desc[index].description || "No Description"}>
-                          {ability.ability.name}
-                        </div>
-                        <Tooltip className="mytooltip" id="my-tooltip-styles" />
-                      </>
-                    ))
-                  : ""}
+          <div className='information_container'>
+            <div className='basic_information'>
+              <div className='image_informatin'>
+                <div className='image_container'>
+                  <img src={info && info.sprites ? info.sprites.front_default : "unidentified"} alt='img' className='poke-image' ></img>
+                </div>
+              </div>
+              <div className='text_information'>
+                <div className='text-information'>
+                  <div className='name'>Species:</div>
+                  <div className='text'>{info && info.species ? info.species.name : "unidentified"}</div>
+                </div>
+                <div className='text-information'>
+                  <div className='name'>Weight:</div>
+                  <div className='text'>{info && info.weight ? info.weight : "unidentified"}</div>
+                </div>
               </div>
             </div>
-            <div className='text-information'>
-              <div className='name'>Weight:</div>
-              <div className='text'>{info && info.weight ? info.weight : "unidentified"}</div>
+            <div className='advance_information'>
+              <div className='abilities_information'>
+                <div className='advance_section_title'>Ability</div>
+                <div className="abilities">
+                  {info && info.abilities && info.abilities.length > 0
+                    ? info.abilities.map((ability, index) => (
+                        <>
+                          <div
+                            className="ability"
+                            data-tooltip-id="my-tooltip-styles"
+                            data-tooltip-content={desc[index].description || "No Description"}>
+                            {ability.ability.name}
+                          </div>
+                          <Tooltip className="mytooltip" id="my-tooltip-styles" />
+                        </>
+                      ))
+                    : ""}
+                </div>
             </div>
+            </div>
+
           </div>
         </Modal.Body>
         <Modal.Footer>

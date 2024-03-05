@@ -105,6 +105,12 @@
   color: #282c34;
 }
 
+.text_information{
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+}
+
 .name{
   font-weight: bold;
 }
@@ -119,6 +125,7 @@
   width: 175px;
   height: 175px;
   margin: auto;
+  filter: drop-shadow(5px 5px 5px #222);
 }
 
 .image_container{
@@ -128,4 +135,35 @@
   height: 180px;
   margin: auto;
   border: 5px solid #16A3B8;
+}
+
+.information_container{
+  display: flex;
+  flex-direction: column;
+}
+
+.basic_information{
+  display: flex;
+  gap: 25px;
+  width: 100%;
+  background-color: #16A3B8;
+  margin: auto;
+  border-radius: 10px;
+}
+.advance_information{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.abilities_information{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+
+.advance_section_title{
+  text-align: center;
+  font-weight: bold;
 }
