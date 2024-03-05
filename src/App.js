@@ -104,7 +104,7 @@ function App() {
         <Modal.Body>
           <div className='information_container'>
             <div className='basic_information'>
-              <div className='image_informatin'>
+              <div className='image_information'>
                 <div className='image_container'>
                   <img src={info && info.sprites ? info.sprites.front_default : "unidentified"} alt='img' className='poke-image' ></img>
                 </div>
