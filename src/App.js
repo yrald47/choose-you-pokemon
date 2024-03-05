@@ -4,6 +4,9 @@ import Select from "react-select";
 import { useEffect, useState } from 'react';
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Tooltip } from "react-tooltip";
 
@@ -146,9 +149,9 @@ function App() {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="info" onClick={handleClose}>
             OK
-          </Button>
+          </Button>{' '}
         </Modal.Footer>
       </Modal>
     </div>
