@@ -114,9 +114,6 @@ function App() {
         </Modal.Header>
         <Modal.Body>
           <div className="information">
-            <div className='image_container'>
-              <img src={info && info.sprites ? info.sprites.front_default : "unidentified"} alt='img' className='poke-image' ></img>
-            </div>
             <div className='text-information'>
               <div className='name'>Sprites:</div>
               <div className='text'>{info && info.sprites ? info.sprites.front_default : "unidentified"}</div>
