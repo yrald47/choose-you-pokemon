@@ -111,6 +111,7 @@
   margin-top: 25px;
   margin-left: 15px;
   margin-bottom: 10px;
+  background-color: transparent;
 }
 
 .name{
@@ -131,12 +132,13 @@
 }
 
 .image_container{
-  display: flex;
+  /* display: flex; */
   border-radius: 100px;
   width: 180px;
   height: 180px;
   margin: auto;
   border: 5px solid #16A3B8;
+  justify-content: center;
 }
 
 .information_container{
@@ -152,6 +154,7 @@
   margin: auto;
   border-radius: 10px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .advance_information{
   display: flex;
