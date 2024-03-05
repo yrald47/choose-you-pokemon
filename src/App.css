@@ -87,12 +87,45 @@
   margin: 5px;
 }
 
-.info{
+.information{
   display: flex;
   flex-direction: column;
-  gap: 10px
+  gap: 10px;
 }
 
 .mytooltip {
   max-width: 100%;
+}
+
+.text-information{
+  display: flex;
+  width: 100%;
+  gap: 5px;
+  justify-content: flex-start;
+  color: #282c34;
+}
+
+.name{
+  font-weight: bold;
+}
+
+.text{
+  max-width: 100%;
+  overflow-wrap: break-word;
+  overflow: hidden;
+}
+
+.poke-image{
+  width: 175px;
+  height: 175px;
+  margin: auto;
+}
+
+.image_container{
+  display: flex;
+  /* background-color: #16A3B8; */
+  border-radius: 100px;
+  /* width: 50%; */
+  margin: auto;
+  border: 2px solid #16A3B8;
 }

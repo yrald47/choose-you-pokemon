@@ -4,9 +4,6 @@ import Select from "react-select";
 import { useEffect, useState } from 'react';
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Tooltip } from "react-tooltip";
 
@@ -116,10 +113,17 @@ function App() {
           <Modal.Title>{labelSelected || "Pokemon"} Info</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="info">
-            <div>
-              <b>Species:</b>{" "}
-              {info && info.species ? info.species.name : "unidentified"}
+          <div className="information">
+            <div className='image_container'>
+              <img src={info && info.sprites ? info.sprites.front_default : "unidentified"} alt='img' className='poke-image' ></img>
+            </div>
+            <div className='text-information'>
+              <div className='name'>Sprites:</div>
+              <div className='text'>{info && info.sprites ? info.sprites.front_default : "unidentified"}</div>
+            </div>
+            <div className='text-information'>
+              <div className='name'>Species:</div>
+              <div className='text'>{info && info.species ? info.species.name : "unidentified"}</div>
             </div>
             <div>
               <b>Ability:</b>
@@ -130,10 +134,7 @@ function App() {
                         <div
                           className="ability"
                           data-tooltip-id="my-tooltip-styles"
-                          data-tooltip-content={
-                            desc[index].description || "No Description"
-                          }
-                        >
+                          data-tooltip-content={desc[index].description || "No Description"}>
                           {ability.ability.name}
                         </div>
                         <Tooltip className="mytooltip" id="my-tooltip-styles" />
@@ -142,16 +143,14 @@ function App() {
                   : ""}
               </div>
             </div>
-            <div>
-              <b>Weight:</b>
-              {info && info.weight ? info.weight : "unidentified"}
+            <div className='text-information'>
+              <div className='name'>Weight:</div>
+              <div className='text'>{info && info.weight ? info.weight : "unidentified"}</div>
             </div>
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="info" onClick={handleClose}>
-            OK
-          </Button>{' '}
+          <Button variant="danger" onClick={handleClose}>CLOSE</Button>
         </Modal.Footer>
       </Modal>
     </div>
