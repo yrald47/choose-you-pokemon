@@ -125,7 +125,8 @@
   display: flex;
   /* background-color: #16A3B8; */
   border-radius: 100px;
-  /* width: 50%; */
+  width: 175px;
+  height: 175px;
   margin: auto;
   border: 2px solid #16A3B8;
 }
