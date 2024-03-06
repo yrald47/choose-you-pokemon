@@ -104,11 +104,11 @@ function App() {
         <Modal.Body>
           <div className='information_container'>
             <div className='basic_information'>
-              <div className='image_information'>
+              {/* <div className='image_information'> */}
                 <div className='image_container'>
                   <img src={info && info.sprites ? info.sprites.front_default : "unidentified"} alt='img' className='poke-image' ></img>
                 </div>
-              </div>
+              {/* </div> */}
               <div className='text_information'>
                 <div className='text-information'>
                   <div className='name'>Species:</div>
@@ -117,6 +117,10 @@ function App() {
                 <div className='text-information'>
                   <div className='name'>Weight:</div>
                   <div className='text'>{info && info.weight ? info.weight : "unidentified"}</div>
+                </div>
+                <div className='text-information'>
+                  <div className='name'>Height:</div>
+                  <div className='text'>{info && info.height ? info.height : "unidentified"}</div>
                 </div>
               </div>
             </div>
