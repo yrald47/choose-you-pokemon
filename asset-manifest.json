@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/choose-your-poke/static/css/main.b04bd70c.css",
-    "main.js": "/choose-your-poke/static/js/main.4bb11efa.js",
+    "main.css": "/choose-your-poke/static/css/main.b604a02e.css",
+    "main.js": "/choose-your-poke/static/js/main.7f28b196.js",
     "static/js/453.952f10cc.chunk.js": "/choose-your-poke/static/js/453.952f10cc.chunk.js",
     "static/media/pokeball.svg": "/choose-your-poke/static/media/pokeball.b88995eb9c133b9c082d2147c2a4b4d5.svg",
     "index.html": "/choose-your-poke/index.html",
-    "main.b04bd70c.css.map": "/choose-your-poke/static/css/main.b04bd70c.css.map",
-    "main.4bb11efa.js.map": "/choose-your-poke/static/js/main.4bb11efa.js.map",
+    "main.b604a02e.css.map": "/choose-your-poke/static/css/main.b604a02e.css.map",
+    "main.7f28b196.js.map": "/choose-your-poke/static/js/main.7f28b196.js.map",
     "453.952f10cc.chunk.js.map": "/choose-your-poke/static/js/453.952f10cc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b04bd70c.css",
-    "static/js/main.4bb11efa.js"
+    "static/css/main.b604a02e.css",
+    "static/js/main.7f28b196.js"
   ]
 }
