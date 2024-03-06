@@ -99,10 +99,16 @@
 
 .text-information{
   display: flex;
-  width: 100%;
   gap: 5px;
   justify-content: flex-start;
-  color: #282c34;
+  margin: 5px 0 5px 0;
+}
+
+.text-information.stat{
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 0 5px 0 5px; 
+  border: solid #16A3B8;
 }
 
 .text_information{
@@ -113,6 +119,7 @@
   margin-bottom: 10px;
   margin-right: 10px;
   background-color: transparent;
+
 }
 
 .name{
@@ -126,19 +133,24 @@
 }
 
 .poke-image{
-  width: 175px;
-  height: 175px;
+  width: 100px;
+  height: 100px;
   margin: auto;
   filter: drop-shadow(5px 5px 5px #222);
 }
 
+.image_information{
+  width: 180px;
+  height: 180px;  
+}
+
 .image_container{
-  /* display: flex; */
+  display: flex;
   border-radius: 100px;
   width: 180px;
   height: 180px;
   margin: auto;
-  border: 5px solid #16A3B8;
+  border: 5px solid #288391;
   justify-content: center;
 }
 
@@ -149,13 +161,15 @@
 
 .basic_information{
   display: flex;
-  gap: 25px;
+  gap: 10px;
   width: 100%;
   background-color: #16A3B8;
   margin: auto;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 5px 0 5px 0;
 }
 .advance_information{
   display: flex;
@@ -173,4 +187,14 @@
 .advance_section_title{
   text-align: center;
   font-weight: bold;
+}
+
+.stats_container{
+  display: flex;
+  background-color: #288391;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  justify-content: space-between;
+  padding: 5px;
+  flex-wrap: wrap; 
 }

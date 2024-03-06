@@ -104,11 +104,11 @@ function App() {
         <Modal.Body>
           <div className='information_container'>
             <div className='basic_information'>
-              {/* <div className='image_information'> */}
+              <div className='image_information'>
                 <div className='image_container'>
-                  <img src={info && info.sprites ? info.sprites.front_default : "unidentified"} alt='img' className='poke-image' ></img>
+                  <img src={info && info.sprites ? info.sprites.other.showdown.front_default : "unidentified"} alt='img' className='poke-image' ></img>
                 </div>
-              {/* </div> */}
+              </div>
               <div className='text_information'>
                 <div className='text-information'>
                   <div className='name'>Species:</div>
@@ -123,6 +123,16 @@ function App() {
                   <div className='text'>{info && info.height ? info.height : "unidentified"}</div>
                 </div>
               </div>
+            </div>
+            <div className='stats_container'>
+              {info && info.stats && info.stats.length > 0 ? info.stats.map((stat, index) => (
+                <>
+                  <div className='text-information stat'>
+                    <div className='name'>{stat && stat.stat.name ? stat.stat.name.toLowerCase().split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ") : "No Value"}:</div>
+                    <div className='text'>{stat && stat.base_stat ? `${stat.base_stat} pt` : "No Value"}</div>
+                  </div>
+                </>
+              )): ""}
             </div>
             <div className='advance_information'>
               <div className='abilities_information'>
