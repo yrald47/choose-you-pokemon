@@ -149,7 +149,7 @@
 
 .image_container{
   display: flex;
-  border-radius: 100px;
+  border-radius: 50%;
   width: 180px;
   height: 180px;
   margin: auto;
