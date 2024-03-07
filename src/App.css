@@ -32,6 +32,9 @@
 
 .subtitle{
   font-size: 15px;
+  padding: 0 5px 0 5px;
+  /* overflow-wrap: break-word;
+  overflow: hidden; */
 }
 .result{
   color: white;
@@ -169,7 +172,7 @@
   border-top-right-radius: 10px;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 5px 0 5px 0;
+  padding: 5px 0 5px 5px;
 }
 .advance_information{
   display: flex;

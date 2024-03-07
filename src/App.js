@@ -131,13 +131,13 @@ function App() {
                 <div className="text-information">
                   <div className="name">Weight:</div>
                   <div className="text">
-                    {info && info.weight ? info.weight : "unidentified"}
+                    {info && info.weight ? `${info.weight/10} kg` : "unidentified"}
                   </div>
                 </div>
                 <div className="text-information">
                   <div className="name">Height:</div>
                   <div className="text">
-                    {info && info.height ? info.height : "unidentified"}
+                    {info && info.height ? `${info.height/10} m` : "unidentified"}
                   </div>
                 </div>
               </div>
