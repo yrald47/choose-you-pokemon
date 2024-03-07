@@ -102,41 +102,77 @@ function App() {
           <Modal.Title>{labelSelected || "Pokemon"} Info</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className='information_container'>
-            <div className='basic_information'>
-              <div className='image_information'>
-                <div className='image_container'>
-                  <img src={info && info.sprites ? info.sprites.other.showdown.front_default : "unidentified"} alt='img' className='poke-image' ></img>
+          <div className="information_container">
+            <div className="basic_information">
+              <div className="image_information">
+                <div className="image_container">
+                  <img
+                    src={
+                      info &&
+                      info.sprites &&
+                      info.sprites.other.showdown.front_default != null
+                        ? info.sprites.other.showdown.front_default
+                        : info && info.sprites
+                        ? info.sprites.front_default
+                        : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png"
+                    }
+                    alt={labelSelected}
+                    className="poke-image"
+                  ></img>
                 </div>
               </div>
-              <div className='text_information'>
-                <div className='text-information'>
-                  <div className='name'>Species:</div>
-                  <div className='text'>{info && info.species ? info.species.name : "unidentified"}</div>
-                </div>
-                <div className='text-information'>
-                  <div className='name'>Weight:</div>
-                  <div className='text'>{info && info.weight ? info.weight : "unidentified"}</div>
-                </div>
-                <div className='text-information'>
-                  <div className='name'>Height:</div>
-                  <div className='text'>{info && info.height ? info.height : "unidentified"}</div>
-                </div>
-              </div>
-            </div>
-            <div className='stats_container'>
-              {info && info.stats && info.stats.length > 0 ? info.stats.map((stat, index) => (
-                <>
-                  <div className='text-information stat'>
-                    <div className='name'>{stat && stat.stat.name ? stat.stat.name.toLowerCase().split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ") : "No Value"}:</div>
-                    <div className='text'>{stat && stat.base_stat ? `${stat.base_stat} pt` : "No Value"}</div>
+              <div className="text_information">
+                <div className="text-information">
+                  <div className="name">Species:</div>
+                  <div className="text">
+                    {info && info.species ? info.species.name : "unidentified"}
                   </div>
-                </>
-              )): ""}
+                </div>
+                <div className="text-information">
+                  <div className="name">Weight:</div>
+                  <div className="text">
+                    {info && info.weight ? info.weight : "unidentified"}
+                  </div>
+                </div>
+                <div className="text-information">
+                  <div className="name">Height:</div>
+                  <div className="text">
+                    {info && info.height ? info.height : "unidentified"}
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className='advance_information'>
-              <div className='abilities_information'>
-                <div className='advance_section_title'>Ability</div>
+            <div className="stats_container">
+              {info && info.stats && info.stats.length > 0
+                ? info.stats.map((stat, index) => (
+                    <>
+                      <div className="text-information stat">
+                        <div className="name">
+                          {stat && stat.stat.name
+                            ? stat.stat.name
+                                .toLowerCase()
+                                .split(" ")
+                                .map(
+                                  (word) =>
+                                    word.charAt(0).toUpperCase() + word.slice(1)
+                                )
+                                .join(" ")
+                            : "No Value"}
+                          :
+                        </div>
+                        <div className="text">
+                          {stat && stat.base_stat
+                            ? `${stat.base_stat} pt`
+                            : "No Value"}
+                        </div>
+                      </div>
+                    </>
+                  ))
+                : ""}
+            </div>
+            <div className="advance_information">
+              <div className="abilities_information">
+                <div className="advance_section_title">Ability</div>
                 <div className="abilities">
                   {info && info.abilities && info.abilities.length > 0
                     ? info.abilities.map((ability, index) => (
@@ -144,21 +180,28 @@ function App() {
                           <div
                             className="ability"
                             data-tooltip-id="my-tooltip-styles"
-                            data-tooltip-content={desc[index].description || "No Description"}>
+                            data-tooltip-content={
+                              desc[index].description || "No Description"
+                            }
+                          >
                             {ability.ability.name}
                           </div>
-                          <Tooltip className="mytooltip" id="my-tooltip-styles" />
+                          <Tooltip
+                            className="mytooltip"
+                            id="my-tooltip-styles"
+                          />
                         </>
                       ))
                     : ""}
                 </div>
+              </div>
             </div>
-            </div>
-
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="danger" onClick={handleClose}>CLOSE</Button>
+          <Button variant="danger" onClick={handleClose}>
+            CLOSE
+          </Button>
         </Modal.Footer>
       </Modal>
     </div>
