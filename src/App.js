@@ -128,7 +128,7 @@ function App() {
           </codes>
         </h1>
         <button
-          disabled={isLoading}
+          disabled={!selected}
           className={`button ${!isLoading ? "info" : "disabled"}`}
           onClick={(e) => handleShow(e)}
         >
