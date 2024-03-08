@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/choose-your-poke/static/css/main.fe41ca65.css",
-    "main.js": "/choose-your-poke/static/js/main.6b0c9fd2.js",
+    "main.css": "/choose-your-poke/static/css/main.32c4d827.css",
+    "main.js": "/choose-your-poke/static/js/main.e8fa5c3c.js",
     "static/js/453.952f10cc.chunk.js": "/choose-your-poke/static/js/453.952f10cc.chunk.js",
     "static/media/Pokemon_Solid.ttf": "/choose-your-poke/static/media/Pokemon_Solid.5d60be1f7ff5fcc21fc1.ttf",
     "static/media/pokeball.svg": "/choose-your-poke/static/media/pokeball.b88995eb9c133b9c082d2147c2a4b4d5.svg",
     "index.html": "/choose-your-poke/index.html",
-    "main.fe41ca65.css.map": "/choose-your-poke/static/css/main.fe41ca65.css.map",
-    "main.6b0c9fd2.js.map": "/choose-your-poke/static/js/main.6b0c9fd2.js.map",
+    "main.32c4d827.css.map": "/choose-your-poke/static/css/main.32c4d827.css.map",
+    "main.e8fa5c3c.js.map": "/choose-your-poke/static/js/main.e8fa5c3c.js.map",
     "453.952f10cc.chunk.js.map": "/choose-your-poke/static/js/453.952f10cc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe41ca65.css",
-    "static/js/main.6b0c9fd2.js"
+    "static/css/main.32c4d827.css",
+    "static/js/main.e8fa5c3c.js"
   ]
 }
