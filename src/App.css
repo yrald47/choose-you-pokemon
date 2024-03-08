@@ -30,7 +30,9 @@
   /* color: white; */
   font-family: 'PokemonFont', sans-serif;
   color: #FFCD00;
-  text-shadow: 0 0 10px #385BA9, 0 0 10px #385BA9;
+  /* text-shadow: 0 0 10px #385BA9, 0 0 10px #385BA9; */
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #385BA9;
 }
 
 .subtitle{
@@ -129,7 +131,8 @@
 }
 
 .name{
-  font-weight: bold;
+  /* font-weight: bold; */
+  font-weight: 700;
 }
 
 .text{
@@ -194,7 +197,7 @@
 
 .advance_section_title{
   text-align: center;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .stats_container{
