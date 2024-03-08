@@ -19,6 +19,8 @@ function App() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [isLoading, setIsLoading] = useState(false);
   
   useEffect(() => {
     const getPokemons = async () => {
@@ -36,34 +38,70 @@ function App() {
     getPokemons()
   }, [])
 
+  // const handleChange = async (event) => {
+  //   if (event) {
+  //     const selectedValue = event.value;
+  //     setSelected(selectedValue);
+  //     setLabelSelected(event.label);
+
+  //     const detail = await fetch(selectedValue);
+  //     const value = await detail.json();
+  //     const ability_description = value.abilities.map(async (ability) => {
+  //       const abilityResponse = await fetch(ability.ability.url);
+  //       const abilityData = await abilityResponse.json();
+  //       const description = abilityData.effect_entries.find((entry) => entry.language.name === "en")?.effect;
+        
+  //       return {
+  //         ...ability.ability,
+  //         description,
+  //       };
+  //     })
+      
+  //     setDesc(await Promise.all(ability_description));
+  //     setInfo(value)
+  //     setBaseExp(value.base_experience);
+  //   }
+  //   else{
+  //     setSelected("");
+  //     setLabelSelected("");
+  //   }
+  // }
   const handleChange = async (event) => {
     if (event) {
+      setIsLoading(true);
       const selectedValue = event.value;
       setSelected(selectedValue);
       setLabelSelected(event.label);
 
-      const detail = await fetch(selectedValue);
-      const value = await detail.json();
-      const ability_description = value.abilities.map(async (ability) => {
-        const abilityResponse = await fetch(ability.ability.url);
-        const abilityData = await abilityResponse.json();
-        const description = abilityData.effect_entries.find((entry) => entry.language.name === "en")?.effect;
-        
-        return {
-          ...ability.ability,
-          description,
-        };
-      })
-      
-      setDesc(await Promise.all(ability_description));
-      setInfo(value)
-      setBaseExp(value.base_experience);
-    }
-    else{
+      try {
+        const detail = await fetch(selectedValue);
+        const value = await detail.json();
+        const ability_description = value.abilities.map(async (ability) => {
+          const abilityResponse = await fetch(ability.ability.url);
+          const abilityData = await abilityResponse.json();
+          const description = abilityData.effect_entries.find(
+            (entry) => entry.language.name === "en"
+          )?.effect;
+
+          return {
+            ...ability.ability,
+            description,
+          };
+        });
+
+        setDesc(await Promise.all(ability_description));
+        setInfo(value);
+        setBaseExp(value.base_experience);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    } else {
       setSelected("");
       setLabelSelected("");
     }
-  }
+  };
 
   return (
     <div className="App">
@@ -86,15 +124,16 @@ function App() {
         />
         <h1 className="result">
           <codes>
-            {selected ? `You choose ${labelSelected} (${baseExp} exp)` : ""}
+            {isLoading ?  `...` : (selected ? `You choose ${labelSelected} (${baseExp} exp)` : "")}
           </codes>
         </h1>
         <button
-          disabled={!selected}
-          className={`button ${selected ? "info" : "disabled"}`}
+          disabled={isLoading}
+          className={`button ${!isLoading ? "info" : "disabled"}`}
           onClick={(e) => handleShow(e)}
         >
-          {selected ? `Show ${labelSelected} Info` : "Select Pokemon First"}
+          {isLoading ? `Loading` : (selected ? `Show ${labelSelected} Info` : "Select Pokemon First")}
+          
         </button>
       </header>
       <Modal show={show} onHide={handleClose} centered>
