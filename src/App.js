@@ -131,13 +131,17 @@ function App() {
                 <div className="text-information">
                   <div className="name">Weight:</div>
                   <div className="text">
-                    {info && info.weight ? `${info.weight/10} kg` : "unidentified"}
+                    {info && info.weight
+                      ? `${info.weight / 10} kg`
+                      : "unidentified"}
                   </div>
                 </div>
                 <div className="text-information">
                   <div className="name">Height:</div>
                   <div className="text">
-                    {info && info.height ? `${info.height/10} m` : "unidentified"}
+                    {info && info.height
+                      ? `${info.height / 10} m`
+                      : "unidentified"}
                   </div>
                 </div>
               </div>
@@ -150,6 +154,7 @@ function App() {
                         <div className="name">
                           {stat && stat.stat.name
                             ? stat.stat.name
+                                .replace("-", " ")
                                 .toLowerCase()
                                 .split(" ")
                                 .map(
@@ -184,7 +189,15 @@ function App() {
                               desc[index].description || "No Description"
                             }
                           >
-                            {ability.ability.name}
+                            {ability.ability.name
+                              .replace("-", " ")
+                              .toLowerCase()
+                              .split(" ")
+                              .map(
+                                (word) =>
+                                  word.charAt(0).toUpperCase() + word.slice(1)
+                              )
+                              .join(" ")}
                           </div>
                           <Tooltip
                             className="mytooltip"
