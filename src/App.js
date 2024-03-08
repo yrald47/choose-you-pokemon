@@ -107,7 +107,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="header">
-          <codes>Choose Your Pokemon</codes>
+          Choose Your Pokemon
         </div>
         <div className="subtitle">
           This is just an app that build for learning. API hit from:{" "}
@@ -138,7 +138,7 @@ function App() {
       </header>
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
-          <Modal.Title>{labelSelected || "Pokemon"} Info</Modal.Title>
+          <Modal.Title className='header'>{labelSelected || "Pokemon"} Info</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="information_container">
