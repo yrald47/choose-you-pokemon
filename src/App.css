@@ -131,8 +131,7 @@
 }
 
 .name{
-  /* font-weight: bold; */
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .text{
@@ -197,7 +196,7 @@
 
 .advance_section_title{
   text-align: center;
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .stats_container{
