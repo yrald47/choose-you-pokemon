@@ -70,15 +70,14 @@ function App() {
     } else {
       setSelected("");
       setLabelSelected("");
+      setIsLoading(true);
     }
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <div className="header">
-          Choose Your Pokemon
-        </div>
+        <div className="header">Choose Your Pokemon</div>
         <div className="subtitle">
           This is just an app that build for learning. API hit from:{" "}
           <a href={pokeAPI} target="blank">
@@ -93,22 +92,29 @@ function App() {
           onChange={(e) => handleChange(e)}
         />
         <h1 className="result">
-          <codes>
-            {!isLoading && selected  ? `You choose ${labelSelected} (${info.base_experience} exp)` : `...`}
-          </codes>
+            {!isLoading && selected
+              ? `You choose ${labelSelected} (${info.base_experience} exp)`
+              : isLoading && !selected
+              ? `You haven't chosen any Pokemon yet`
+              : <div className='loader'></div>}
         </h1>
         <button
           disabled={isLoading}
           className={`button ${!isLoading ? "info" : "disabled"}`}
           onClick={(e) => handleShow(e)}
         >
-          {!isLoading && selected ? `Show ${labelSelected} Info` : (isLoading && !selected ? `Select Pokemon First` : "Loading")}
-          
+          {!isLoading && selected
+            ? `Show ${labelSelected} Info`
+            : isLoading && !selected
+            ? `Select Pokemon First`
+            : "Loading"}
         </button>
       </header>
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
-          <Modal.Title className='header'>{labelSelected || "Pokemon"} Info</Modal.Title>
+          <Modal.Title className="header">
+            {labelSelected || "Pokemon"} Info
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="information_container">
