@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/choose-your-poke/static/css/main.1f84af62.css",
+    "main.css": "/choose-your-poke/static/css/main.78234f8e.css",
     "main.js": "/choose-your-poke/static/js/main.dac8abfd.js",
     "static/js/453.952f10cc.chunk.js": "/choose-your-poke/static/js/453.952f10cc.chunk.js",
     "static/media/Pokemon_Solid.ttf": "/choose-your-poke/static/media/Pokemon_Solid.5d60be1f7ff5fcc21fc1.ttf",
     "static/media/pokeball.svg": "/choose-your-poke/static/media/pokeball.b88995eb9c133b9c082d2147c2a4b4d5.svg",
     "index.html": "/choose-your-poke/index.html",
-    "main.1f84af62.css.map": "/choose-your-poke/static/css/main.1f84af62.css.map",
+    "main.78234f8e.css.map": "/choose-your-poke/static/css/main.78234f8e.css.map",
     "main.dac8abfd.js.map": "/choose-your-poke/static/js/main.dac8abfd.js.map",
     "453.952f10cc.chunk.js.map": "/choose-your-poke/static/js/453.952f10cc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1f84af62.css",
+    "static/css/main.78234f8e.css",
     "static/js/main.dac8abfd.js"
   ]
 }
