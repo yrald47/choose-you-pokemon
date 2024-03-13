@@ -92,11 +92,13 @@ function App() {
           onChange={(e) => handleChange(e)}
         />
         <h1 className="result">
-            {!isLoading && selected
-              ? `You choose ${labelSelected} (${info.base_experience} exp)`
-              : isLoading && !selected
-              ? `You haven't chosen any Pokemon yet`
-              : <div className='loader'></div>}
+          {!isLoading && selected ? (
+            `You choose ${labelSelected} (${info.base_experience} exp)`
+          ) : isLoading && !selected ? (
+            `You haven't chosen any Pokemon yet`
+          ) : (
+            <div className="loader"></div>
+          )}
         </h1>
         <button
           disabled={isLoading}
